@@ -64,21 +64,22 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <Image
-                src="/logo.png"
-                alt="AIRYSys Logo"
-                width={40}
-                height={40}
-                className="h-10 w-auto brightness-0 invert"
-              />
-              <div>
-                <span className="text-lg font-semibold tracking-tight">
-                  AIRYSys
-                </span>
-                <span className="block text-[10px] text-white/60 tracking-[0.2em] uppercase">
-                  Build Intelligence
-                </span>
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 flex-wrap">
+              <div className="inline-flex items-center gap-2 sm:gap-3 rounded-lg bg-white/95 px-2.5 py-2 shadow-sm">
+                <Image
+                  src="/logo-mark.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="h-9 w-9 sm:h-10 sm:w-10 object-contain"
+                />
+                <Image
+                  src="/logo-name.png"
+                  alt="AIRYSys — Build Intelligence"
+                  width={200}
+                  height={44}
+                  className="h-8 sm:h-9 w-auto max-w-[200px] object-contain object-left"
+                />
               </div>
             </div>
             <p className="text-white/60 text-sm leading-relaxed max-w-sm mt-4">

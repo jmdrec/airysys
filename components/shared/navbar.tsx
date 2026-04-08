@@ -42,24 +42,27 @@ export function Navbar() {
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-18 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+          {/* Logo mark + wordmark (separate assets) */}
+          <Link
+            href="/"
+            className="flex items-center gap-2 sm:gap-3 group shrink-0"
+          >
             <Image
-              src="/logo.png"
-              alt="AIRYSys Logo"
-              width={44}
-              height={44}
-              className="h-11 w-auto"
+              src="/logo-mark.png"
+              alt=""
+              width={48}
+              height={48}
+              className="h-10 w-10 sm:h-11 sm:w-11 object-contain"
               priority
             />
-            <div className="flex flex-col">
-              <span className="text-lg font-semibold text-foreground tracking-tight leading-tight">
-                AIRYSys
-              </span>
-              <span className="text-[10px] font-medium text-secondary tracking-[0.2em] uppercase leading-tight">
-                Build Intelligence
-              </span>
-            </div>
+            <Image
+              src="/logo-name.png"
+              alt="AIRYSys — Build Intelligence"
+              width={200}
+              height={48}
+              className="h-9 sm:h-10 w-auto max-w-[min(52vw,200px)] object-contain object-left"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
