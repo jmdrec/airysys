@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
 import Link from "next/link";
@@ -25,7 +26,7 @@ const blogPosts = [
     date: "Mar 28, 2026",
     readTime: "8 min read",
     featured: true,
-    gradient: "from-primary to-emerald-500",
+    image: "/images/service-agentic.png",
   },
   {
     title: "Next.js 15 App Router: A Complete Guide for Production",
@@ -35,7 +36,7 @@ const blogPosts = [
     date: "Mar 20, 2026",
     readTime: "12 min read",
     featured: false,
-    gradient: "from-blue-600 to-cyan-500",
+    image: "/images/service-web.png",
   },
   {
     title: "Building RAG Pipelines That Actually Work",
@@ -45,17 +46,17 @@ const blogPosts = [
     date: "Mar 15, 2026",
     readTime: "10 min read",
     featured: false,
-    gradient: "from-amber-500 to-orange-500",
+    image: "/images/service-ml.png",
   },
   {
-    title: "The SDLC is Dead. Long Live AI-Augmented Development",
+    title: "IoT in Manufacturing: Real-World Case Studies",
     excerpt:
-      "How AI tools are reshaping the software development lifecycle — and what it means for engineering teams in 2026.",
+      "How industrial IoT is reducing downtime and improving efficiency — with real implementation stories and metrics.",
     category: "engineering" as BlogCategory,
     date: "Mar 10, 2026",
     readTime: "6 min read",
     featured: false,
-    gradient: "from-purple-600 to-pink-500",
+    image: "/images/service-iot.png",
   },
   {
     title: "From Intern to Engineer: How to Break Into Tech in 2026",
@@ -65,17 +66,17 @@ const blogPosts = [
     date: "Mar 5, 2026",
     readTime: "7 min read",
     featured: false,
-    gradient: "from-rose-500 to-red-500",
+    image: "/images/hero-internships.png",
   },
   {
-    title: "Scaling React Native Apps to 100K+ Users",
+    title: "Blockchain Beyond Crypto: Enterprise Use Cases",
     excerpt:
-      "Lessons learned from building and scaling cross-platform mobile applications — performance, architecture, and monitoring.",
-    category: "web" as BlogCategory,
+      "Smart contracts for supply chains, decentralized identity, and transparent auditing — blockchain is transforming enterprise operations.",
+    category: "engineering" as BlogCategory,
     date: "Feb 28, 2026",
     readTime: "9 min read",
     featured: false,
-    gradient: "from-indigo-500 to-violet-500",
+    image: "/images/service-blockchain.png",
   },
 ];
 
@@ -121,21 +122,27 @@ export function BlogsList() {
           >
             <Link href="#" className="block">
               <div className="grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all duration-300">
-                <div
-                  className={`h-64 md:h-auto bg-gradient-to-br ${featuredPost.gradient} flex items-center justify-center p-8`}
-                >
-                  <div className="text-center">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-sm mb-4">
+                <div className="relative h-64 md:h-auto">
+                  <Image
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="50vw"
+                  />
+                  <div className="absolute inset-0 bg-dark-bg/30" />
+                  <div className="absolute top-4 left-4">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm">
                       <Tag className="h-3.5 w-3.5" />
                       Featured
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-tight">
-                      {featuredPost.title}
-                    </h3>
+                    </span>
                   </div>
                 </div>
                 <div className="p-8 bg-card flex flex-col justify-center">
-                  <p className="text-foreground-muted leading-relaxed text-lg">
+                  <h3 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
+                    {featuredPost.title}
+                  </h3>
+                  <p className="mt-4 text-foreground-muted leading-relaxed">
                     {featuredPost.excerpt}
                   </p>
                   <div className="mt-6 flex items-center gap-4 text-sm text-foreground-muted">
@@ -170,12 +177,20 @@ export function BlogsList() {
             >
               <Link href="#" className="block h-full">
                 <div className="h-full rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-all duration-300">
-                  <div
-                    className={`h-40 bg-gradient-to-br ${post.gradient} flex items-end p-6`}
-                  >
-                    <span className="px-3 py-1 rounded-full bg-white/20 text-white text-xs font-medium capitalize">
-                      {post.category}
-                    </span>
+                  <div className="relative h-48">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-dark-bg/20" />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-medium capitalize">
+                        {post.category}
+                      </span>
+                    </div>
                   </div>
                   <div className="p-6 bg-card">
                     <h3 className="text-lg font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">

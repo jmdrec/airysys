@@ -5,33 +5,33 @@ import Image from "next/image";
 
 const galleryItems = [
   {
-    src: "/images/gallery-workspace.png",
-    alt: "AIRYSys workspace and team collaboration",
+    src: "/images/hero-company.png",
+    alt: "Team collaboration and strategy session",
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    src: "/images/gallery-office.png",
-    alt: "Modern tech office environment",
+    src: "/images/service-web.png",
+    alt: "Full-stack development workspace",
+    span: "",
+  },
+  {
+    src: "/images/service-consulting.png",
+    alt: "IT consulting and strategy",
+    span: "",
+  },
+  {
+    src: "/images/gallery-brainstorm.png",
+    alt: "Team brainstorming with wireframes",
+    span: "md:col-span-2",
+  },
+  {
+    src: "/images/service-ml.png",
+    alt: "Machine learning model training",
     span: "",
   },
   {
     src: "/images/gallery-coding.png",
     alt: "Developer coding session",
-    span: "",
-  },
-  {
-    src: "/images/hero-internships.png",
-    alt: "Team mentorship and training",
-    span: "md:col-span-2",
-  },
-  {
-    src: "/images/gallery-brainstorm.png",
-    alt: "Team brainstorming session",
-    span: "",
-  },
-  {
-    src: "/images/hero-ai-expertise.png",
-    alt: "AI research and development",
     span: "",
   },
 ];
