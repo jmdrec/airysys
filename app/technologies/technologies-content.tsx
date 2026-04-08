@@ -16,6 +16,10 @@ import {
   Wifi,
   TestTubeDiagonal,
 } from "lucide-react";
+import {
+  TechIcon,
+  HtmlCssIcons,
+} from "@/components/technologies/tech-icon";
 
 const categories = [
   {
@@ -278,9 +282,14 @@ export function TechnologiesContent() {
                   {cat.techs.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 text-sm rounded-lg bg-background-alt text-foreground-muted border border-border hover:border-primary/30 hover:text-primary transition-colors"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg bg-background-alt text-foreground-muted border border-border hover:border-primary/30 hover:text-primary transition-colors"
                     >
-                      {tech}
+                      {tech === "HTML5 / CSS3" ? (
+                        <HtmlCssIcons className="h-4 w-4 text-[#E34F26]" />
+                      ) : (
+                        <TechIcon name={tech} className="h-4 w-4 text-foreground" />
+                      )}
+                      <span>{tech}</span>
                     </span>
                   ))}
                 </div>
