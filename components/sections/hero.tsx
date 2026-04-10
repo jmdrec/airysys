@@ -38,17 +38,17 @@ const slides = [
     headlineEnd: "That Thinks & Acts",
     description:
       "From multi-agent orchestration to RAG pipelines and intelligent automation — we deliver AI systems that reason, plan, and execute complex workflows.",
-    cta: { label: "Explore AI Services", href: "/services#agentic-ai" },
+    cta: { label: "Explore AI Services", href: "/services/agentic-ai" },
     secondaryCta: { label: "View Portfolio", href: "/portfolio" },
     image: "/images/hero-ai-expertise.png",
   },
   {
     badge: "Global Technology Partner",
-    headline: "Delivering Excellence Across",
-    highlight: "India, USA & UK",
+    headline: "Serving Clients Across",
+    highlight: "India & the World",
     headlineEnd: "",
     description:
-      "50+ projects delivered, 3 global offices, and a team of passionate engineers building scalable digital products for businesses worldwide.",
+      "With offices in Nandyal and Hyderabad, we deliver projects for clients in the USA, UK, Middle East, Africa, and beyond — combining local expertise with global delivery.",
     cta: { label: "Start a Project", href: "/contact" },
     secondaryCta: { label: "About Us", href: "/about" },
     image: "/images/hero-company.png",

@@ -8,7 +8,7 @@ import { Team } from "./sections/team";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about AIRYSys — a next-generation IT company building intelligent solutions for global businesses across India, USA, and UK.",
+    "Learn about AIRYSys — offices in Nandyal & Hyderabad, building intelligent solutions for clients in India, USA, UK, Middle East, Africa, and worldwide.",
 };
 
 export default function AboutPage() {

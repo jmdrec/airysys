@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, MessageCircle, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, Clock, Globe } from "lucide-react";
 
 const contactDetails = [
   {
@@ -28,11 +28,18 @@ const contactDetails = [
     value: "Mon–Fri, 9 AM – 7 PM IST",
     href: null,
   },
+];
+
+const offices = [
   {
-    icon: MapPin,
-    label: "Office",
-    value: "Hyderabad, Telangana, India",
-    href: null,
+    city: "Nandyal",
+    address:
+      "2nd Floor, 25/684/374, opp. Nayana Hospital, Padmavathi Nagar, Nandyala, Andhra Pradesh 518501",
+  },
+  {
+    city: "Hyderabad",
+    address:
+      "604, Block B, Skill Estate, Vijay nagar colony, Hyderabad, Telangana, India",
   },
 ];
 
@@ -84,7 +91,44 @@ export function ContactInfo() {
         ))}
       </div>
 
-      {/* Embedded Map */}
+      <div className="space-y-4">
+        <div className="flex items-start gap-3">
+          <div className="flex-shrink-0 p-2.5 rounded-lg bg-primary/10 text-primary">
+            <MapPin className="h-5 w-5" />
+          </div>
+          <div>
+            <div className="text-sm font-medium text-foreground mb-3">
+              Offices in India
+            </div>
+            <ul className="space-y-4">
+              {offices.map((o) => (
+                <li key={o.city} className="text-sm text-foreground-muted">
+                  <span className="font-medium text-foreground">{o.city}</span>
+                  <span className="block mt-1 leading-relaxed">{o.address}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-3 pt-2 border-t border-border">
+          <div className="flex-shrink-0 p-2.5 rounded-lg bg-primary/10 text-primary">
+            <Globe className="h-5 w-5" />
+          </div>
+          <div>
+            <div className="text-sm font-medium text-foreground mb-1">
+              Clients worldwide
+            </div>
+            <p className="text-sm text-foreground-muted leading-relaxed">
+              We also work with organizations in the USA, UK, Middle East, Africa,
+              and other regions — delivery is coordinated from our India offices
+              and remotely.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Embedded Map — Hyderabad */}
       <div className="rounded-2xl overflow-hidden border border-border h-64">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.0431589!2d78.24323!3d17.4123487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
@@ -94,7 +138,7 @@ export function ContactInfo() {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="AIRYSys Office Location"
+          title="AIRYSys — Hyderabad area"
         />
       </div>
 

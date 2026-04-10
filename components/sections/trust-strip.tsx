@@ -3,24 +3,31 @@
 import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
 
-const locations = [
+const regions = [
   {
-    country: "India",
     flag: "🇮🇳",
-    city: "Hyderabad",
-    description: "Development Hub",
+    label: "India",
+    description: "Offices in Nandyal & Hyderabad",
   },
   {
-    country: "USA",
     flag: "🇺🇸",
-    city: "New York",
-    description: "Americas Office",
+    label: "USA",
+    description: "Enterprise & startup clients",
   },
   {
-    country: "UK",
     flag: "🇬🇧",
-    city: "London",
-    description: "Europe Office",
+    label: "UK",
+    description: "Technology partnerships",
+  },
+  {
+    flag: "🌍",
+    label: "Middle East",
+    description: "Regional engagements",
+  },
+  {
+    flag: "🌍",
+    label: "Africa",
+    description: "Growing client base",
   },
 ];
 
@@ -37,24 +44,26 @@ export function TrustStrip() {
         >
           <div className="inline-flex items-center gap-2 text-sm text-foreground-muted">
             <Globe className="h-4 w-4 text-primary" />
-            Trusted Globally Across 3 Continents
+            Trusted by clients across India, USA, UK, Middle East & Africa
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          {locations.map((loc, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+          {regions.map((loc, i) => (
             <motion.div
-              key={loc.country}
+              key={loc.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex items-center justify-center gap-4 p-6 rounded-xl bg-background-alt border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300"
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="flex items-center justify-center gap-3 p-5 rounded-xl bg-background-alt border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300"
             >
-              <span className="text-3xl">{loc.flag}</span>
-              <div>
-                <div className="font-semibold text-foreground">{loc.city}</div>
-                <div className="text-sm text-foreground-muted">
+              <span className="text-2xl">{loc.flag}</span>
+              <div className="text-left min-w-0">
+                <div className="font-semibold text-foreground text-sm">
+                  {loc.label}
+                </div>
+                <div className="text-xs text-foreground-muted leading-snug">
                   {loc.description}
                 </div>
               </div>

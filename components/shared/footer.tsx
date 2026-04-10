@@ -5,18 +5,24 @@ import {
   Phone,
   MapPin,
   ArrowUpRight,
+  Globe,
 } from "lucide-react";
 
 const footerLinks = {
   services: [
-    { label: "Web Development", href: "/services#web" },
-    { label: "Mobile Development", href: "/services#mobile" },
-    { label: "Machine Learning", href: "/services#ml" },
-    { label: "Agentic AI", href: "/services#agentic-ai" },
-    { label: "Cloud & Deployment", href: "/services#cloud" },
+    { label: "Web Development", href: "/services/web-development" },
+    { label: "Mobile Development", href: "/services/mobile-development" },
+    { label: "Machine Learning", href: "/services/machine-learning" },
+    { label: "Agentic AI", href: "/services/agentic-ai" },
+    { label: "Cloud & Deployment", href: "/services/cloud-deployment" },
+    { label: "IT Consulting", href: "/services/it-consulting" },
+    { label: "IoT Development", href: "/services/iot-development" },
+    { label: "Blockchain Development", href: "/services/blockchain-development" },
+    { label: "Chatbot Development", href: "/services/chatbot-development" },
   ],
   company: [
     { label: "About Us", href: "/about" },
+    { label: "Technologies", href: "/technologies" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Blogs", href: "/blogs" },
     { label: "Careers", href: "/internships" },
@@ -29,10 +35,23 @@ const footerLinks = {
   ],
 };
 
-const offices = [
-  { country: "India", flag: "🇮🇳", city: "Hyderabad" },
-  { country: "USA", flag: "🇺🇸", city: "New York" },
-  { country: "UK", flag: "🇬🇧", city: "London" },
+const indiaOffices = [
+  {
+    city: "Nandyal",
+    address:
+      "2nd Floor, 25/684/374, opp. Nayana Hospital, Padmavathi Nagar, Nandyala, Andhra Pradesh 518501",
+  },
+  {
+    city: "Hyderabad",
+    address: "604, Block B, Skill Estate, Vijay nagar colony, Hyderabad, Telangana",
+  },
+];
+
+const clientRegions = [
+  { flag: "🇺🇸", label: "USA" },
+  { flag: "🇬🇧", label: "UK" },
+  { flag: "🌍", label: "Middle East" },
+  { flag: "🌍", label: "Africa" },
 ];
 
 export function Footer() {
@@ -88,17 +107,44 @@ export function Footer() {
               automation for businesses worldwide.
             </p>
 
-            {/* Global Offices */}
-            <div className="flex items-center gap-4 mt-6">
-              {offices.map((office) => (
-                <div
-                  key={office.country}
-                  className="flex items-center gap-1.5 text-sm text-white/50"
-                >
-                  <span>{office.flag}</span>
-                  <span>{office.city}</span>
+            {/* Offices in India */}
+            <div className="mt-6 space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/50">
+                Offices in India
+              </p>
+              {indiaOffices.map((o) => (
+                <div key={o.city} className="text-sm text-white/60">
+                  <span className="text-white/90 font-medium">{o.city}</span>
+                  <span className="block mt-1 leading-relaxed">{o.address}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Client regions (not physical offices) */}
+            <div className="mt-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/50 mb-2 flex items-center gap-2">
+                <Globe className="h-3.5 w-3.5" />
+                Clients we serve
+              </p>
+              <p className="text-sm text-white/55 leading-relaxed mb-3">
+                We work with organizations across{" "}
+                <span className="text-white/80">USA</span>,{" "}
+                <span className="text-white/80">UK</span>,{" "}
+                <span className="text-white/80">Middle East</span>,{" "}
+                <span className="text-white/80">Africa</span>, and India —
+                remotely and on-site where needed.
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                {clientRegions.map((r) => (
+                  <span
+                    key={r.label}
+                    className="inline-flex items-center gap-1.5 text-xs text-white/45"
+                  >
+                    <span>{r.flag}</span>
+                    <span>{r.label}</span>
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Social Links */}
@@ -184,7 +230,9 @@ export function Footer() {
               <li>
                 <div className="flex items-start gap-2 text-sm text-white/50">
                   <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                  Hyderabad, India
+                  <span>
+                    Hyderabad &amp; Nandyal, Andhra Pradesh / Telangana, India
+                  </span>
                 </div>
               </li>
             </ul>

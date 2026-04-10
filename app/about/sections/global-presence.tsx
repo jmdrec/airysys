@@ -1,38 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Globe } from "lucide-react";
 
-const offices = [
+const indiaOffices = [
   {
-    country: "India",
-    flag: "🇮🇳",
-    city: "Hyderabad",
-    type: "HQ & Development Center",
-    address: "Hyderabad, Telangana, India",
+    city: "Nandyal",
+    type: "Office",
+    address:
+      "2nd Floor, 25/684/374, opp. Nayana Hospital, Padmavathi Nagar, Nandyala, Andhra Pradesh 518501",
     timezone: "IST (UTC+5:30)",
     phone: "+91 98765 43210",
-    email: "india@airysys.com",
+    email: "hello@airysys.com",
   },
   {
-    country: "USA",
+    city: "Hyderabad",
+    type: "Office",
+    address:
+      "604, Block B, Skill Estate, Vijay nagar colony, Hyderabad, Telangana, India",
+    timezone: "IST (UTC+5:30)",
+    phone: "+91 98765 43210",
+    email: "hello@airysys.com",
+  },
+];
+
+const clientRegions = [
+  {
     flag: "🇺🇸",
-    city: "New York",
-    type: "Americas Office",
-    address: "New York, NY, USA",
-    timezone: "EST (UTC-5)",
-    phone: "+1 (212) 555-0198",
-    email: "usa@airysys.com",
+    label: "United States",
+    detail: "Enterprise and startup engagements",
   },
   {
-    country: "UK",
     flag: "🇬🇧",
-    city: "London",
-    type: "Europe Office",
-    address: "London, United Kingdom",
-    timezone: "GMT (UTC+0)",
-    phone: "+44 20 7946 0958",
-    email: "uk@airysys.com",
+    label: "United Kingdom",
+    detail: "Technology and product partnerships",
+  },
+  {
+    flag: "🌍",
+    label: "Middle East",
+    detail: "Regional projects and support",
+  },
+  {
+    flag: "🌍",
+    label: "Africa",
+    detail: "Growing client collaborations",
   },
 ];
 
@@ -48,29 +59,33 @@ export function GlobalPresence() {
           className="text-center mb-16"
         >
           <span className="text-sm font-medium text-primary uppercase tracking-wider">
-            Global Presence
+            Presence & reach
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl font-semibold text-foreground">
-            Where We Operate
+            Offices in India, clients worldwide
           </h2>
           <p className="mt-4 text-lg text-foreground-muted max-w-2xl mx-auto">
-            With offices across three continents, we deliver solutions with
-            global perspective and local expertise.
+            We operate from Nandyal and Hyderabad, and partner with organizations
+            across the USA, UK, Middle East, Africa, and other regions —
+            combining local delivery with global collaboration.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {offices.map((office, i) => (
+        <h3 className="text-lg font-semibold text-foreground mb-6 text-center md:text-left">
+          Our offices in India
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          {indiaOffices.map((office, i) => (
             <motion.div
-              key={office.country}
+              key={office.city}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="p-8 rounded-2xl bg-card border border-border hover:shadow-lg hover:border-primary/20 transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-4xl">{office.flag}</span>
+                <span className="text-4xl">🇮🇳</span>
                 <div>
                   <h3 className="text-xl font-semibold text-foreground">
                     {office.city}
@@ -99,6 +114,40 @@ export function GlobalPresence() {
                   {office.email}
                 </div>
               </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10"
+        >
+          <div className="inline-flex items-center gap-2 text-primary font-medium">
+            <Globe className="h-5 w-5" />
+            <span>Where our clients are based</span>
+          </div>
+          <p className="mt-2 text-sm text-foreground-muted max-w-xl mx-auto">
+            These are regions we actively work with — not separate AIRYSys
+            offices. Delivery is coordinated from our India hubs and remotely.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {clientRegions.map((region, i) => (
+            <motion.div
+              key={region.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="p-6 rounded-xl bg-background-alt border border-border text-center"
+            >
+              <span className="text-3xl block mb-3">{region.flag}</span>
+              <h4 className="font-semibold text-foreground">{region.label}</h4>
+              <p className="text-sm text-foreground-muted mt-2">{region.detail}</p>
             </motion.div>
           ))}
         </div>

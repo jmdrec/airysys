@@ -35,10 +35,10 @@ export function AboutHero() {
             <span className="gradient-text">Intelligence</span>
           </h1>
           <p className="mt-5 text-lg text-white/60 leading-relaxed max-w-2xl">
-            AIRYSys Pvt Ltd is a next-generation IT solutions company
-            headquartered in India with a global footprint across the USA and UK.
-            We specialize in AI-driven platforms, enterprise software, and
-            intelligent automation.
+            AIRYSys Pvt Ltd is a next-generation IT solutions company with offices
+            in Nandyal and Hyderabad. We serve clients in the USA, UK, Middle East,
+            Africa, and beyond — specializing in AI-driven platforms, enterprise
+            software, and intelligent automation.
           </p>
         </motion.div>
       </div>
